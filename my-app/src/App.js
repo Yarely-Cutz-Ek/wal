@@ -7,7 +7,7 @@ function Square({ value, onSquareClick }) {
     </button>
   );
 }
-
+//pinta una X o una O al hacer clic
 function Board({ xIsNext, squares, onPlay }) {
   function handleClick(i) {
     if (calculateWinner(squares) || squares[i]) {
@@ -21,7 +21,8 @@ function Board({ xIsNext, squares, onPlay }) {
     }
     onPlay(nextSquares);
   }
-
+//ayuda a revisar si algun jugador a ganado. 
+//si ha ganado se muestra la frase que hayamos puesto
   const winner = calculateWinner(squares);
   let status;
   if (winner) {
@@ -31,7 +32,7 @@ function Board({ xIsNext, squares, onPlay }) {
   }
 
   return (
-    <>
+    <>//ayuda a saber que casilla a sido cliqueada
       <div className="status">{status}</div>
       <div className="board-row">
         <Square value={squares[0]} onSquareClick={() => handleClick(0)} />
@@ -52,7 +53,7 @@ function Board({ xIsNext, squares, onPlay }) {
   );
 }
 
-export default function Game() {
+export default function Game() { //exporta la función para que el programa lo pueda utilizar
   const [history, setHistory] = useState([Array(9).fill(null)]);
   const [currentMove, setCurrentMove] = useState(0);
   const xIsNext = currentMove % 2 === 0;
