@@ -68,7 +68,7 @@ export default function Game() { //exporta la función para que el programa lo p
   function jumpTo(nextMove) {
     setCurrentMove(nextMove);
   }
-
+// se mostrará un historial cuando detecte un movimiento
   const moves = history.map((squares, move) => {
     let description;
     if (move > 0) {
@@ -106,6 +106,8 @@ function calculateWinner(squares) {
     [0, 4, 8],
     [2, 4, 6],
   ];
+
+  //este ciclo nos ayudará para detectar los valores que se encuentren en las casillas
   for (let i = 0; i < lines.length; i++) {
     const [a, b, c] = lines[i];
     if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
